@@ -1,9 +1,10 @@
 FROM swids/maven-test:debian
 
-ENV DS_VERSION 4.1.1
+ARG DS_VERSION=4.1.1
+ARG DS_FETCH_URL=http://updatesite.sierrawireless.com/developerStudio4/product
 
 RUN mkdir -p -m 777 /ds \
- && wget http://updatesite.sierrawireless.com/developerStudio4/product/devstudio-${DS_VERSION}-linux64.zip -O /ds/ds.zip \
+ && wget ${DS_FETCH_URL}/devstudio-${DS_VERSION}-linux64.zip -O /ds/ds.zip \
  && cd /ds \
  && unzip -q ds.zip \
  && rm ds.zip \

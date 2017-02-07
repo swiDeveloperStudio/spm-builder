@@ -1,6 +1,6 @@
 FROM swids/maven-test:debian
 
-ARG DS_VERSION=4.1.1
+ARG DS_VERSION=5.0
 ARG DS_FETCH_URL=http://updatesite.sierrawireless.com/developerStudio4/product
 
 RUN mkdir -p -m 777 /ds \

@@ -9,6 +9,9 @@ RUN mkdir -p -m 777 /ds \
  && unzip -q ds.zip \
  && rm ds.zip \
  && cp legato-spm ant \
- && sed -e "s/com.swi.spm.headless.packagemanager/org.eclipse.ant.core.antRunner/;s|-data $WORKDIR/wks|-data /tmp/wks|" -i ant
+ && sed -e "s/com.swi.spm.headless.packagemanager/org.eclipse.ant.core.antRunner/g;s|-data \$WORKDIR/wks|-data /tmp/wks|g" -i ant \
+ && mkdir -p /opt/tini \
+ && wget -O /opt/tini/tini https://github.com/krallin/tini/releases/download/v0.16.1/tini \
+ && chmod 755 /opt/tini/tini
 
-ENTRYPOINT [ "/ds/ant" ]
+ENTRYPOINT []
